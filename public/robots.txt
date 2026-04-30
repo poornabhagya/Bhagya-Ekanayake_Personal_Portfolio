@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://poornabhagya.github.io/Bhagya-Ekanayake_Personal_Portfolio/sitemap.xml
