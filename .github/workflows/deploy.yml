@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # main branch එකට push කරපු ගමන් pipeline එක run වෙනවා
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          
+      # මේ step එක අලුතින් එකතු කළා
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Install dependencies
         run: npm install
@@ -31,7 +35,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Vite build එක යන්නේ dist folder එකට
+          path: dist
 
   deploy_site:
     needs: build_site
